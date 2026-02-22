@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sneakers Login</title>
+  <link rel="stylesheet" href="/css/login.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Left Image Section -->
+    <div class="left">
+      <img src="/images/login.png" alt="Sneakers" />
+    </div>
+
+    <!-- Right Login Section -->
+    <div class="right">
+
+      <h1 class="logo">SNEAKERS</h1>
+      <p class="subtitle">Login to your account</p>
+
+      <small class="errors"><%= errors?.general || "" %></small>
+      <form id="loginForm" action="/login" method="POST"  novalidate>
+        
+
+        
+        <input id="email" type="email" name="email" placeholder="Email" class="<%= errors?.email ? 'input-error' : '' %>"
+         value="<%= oldData?.email || "" %>" />
+         <small class="errors"><%= errors?.email || "" %></small>
+
+        
+        <input id="password" type="password" name="password" placeholder="Password" class="<%= errors?.password ? 'input-error' : '' %>"  />
+        <small class="errors"><%= errors?.password || "" %></small>
+        <button type="submit">Login</button>
+
+      </form>
+
+      <div class="links">
+        <a href="#">Forgot password</a>
+        <a href="/signup">Create account</a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="/js/loginValidation.js"></script>
+
+</body>
+</html>

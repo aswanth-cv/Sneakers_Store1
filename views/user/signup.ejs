@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sneakers Signup</title>
+  <link rel="stylesheet" href="/css/signup.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Left Image -->
+    <div class="left">
+      <img src="/images/login.png" alt="Sneakers" />
+    </div>
+
+    <!-- Right Form -->
+    <div class="right">
+
+      <h1 class="logo">SNEAKERS</h1>
+      <p class="subtitle">Create your account</p>
+
+      <small class="errors text-center "><%= errors?.general || "" %></small>
+
+      <form id="signupForm" action="/signup" method="POST" novalidate>
+          
+          <input id="name" type="text" name="name" placeholder="Full Name"
+           class=" text-danger  <%= errors?.name ? 'input-error' : '' %>" value="<%= oldData?.name || '' %>" >
+           <small class="errors"><%= errors?.name || "" %></small>
+          
+          
+          <input id="email" type="email" name="email" placeholder="Email"
+          class="<%= errors?.email ? 'input-error' : '' %>" value="<%= oldData?.email || '' %>" >
+          <small class="errors"><%= errors?.email || "" %></small>
+          
+          
+          <input id="phone" type="tel" name="phone" placeholder="Phone" 
+          class="<%= errors?.phone ? 'input-error' : '' %>" value="<%= oldData?.phone || '' %>" >
+          <small class="errors"><%= errors?.phone || "" %></small>
+          
+          
+          <input id="password" type="password" name="password" placeholder="Password"
+          class="<%= errors?.password ? 'input-error' : '' %>"  >
+          <small class="errors"><%= errors?.password || "" %></small>
+          
+           
+          <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password"
+          class="<%= errors?.confirmPassword ? 'input-error' : '' %>"  >
+          <small class="errors"><%= errors?.confirmPassword || "" %></small>
+          
+
+          
+
+        <button type="submit">Create Account</button>
+
+      </form>
+
+      <div class="links">
+        <a href="/login">Already have account?</a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="/js/signupValidation.js"></script>
+
+</body>
+</html>

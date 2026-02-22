@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #f4f4f4;
+}
+
+/* Layout */
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Left Image */
+.left {
+  flex: 1;
+  background: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left img {
+  width: 70%;
+  object-fit: cover;
+  filter: grayscale(100%);
+}
+
+/* Right Login */
+.right {
+  flex: 1;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px;
+}
+
+/* Logo */
+.logo {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #777;
+  margin-bottom: 30px;
+}
+
+/* Inputs */
+form input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 12px 5px;
+  margin-bottom: 25px;
+  font-size: 14px;
+  outline: none;
+}
+
+/* Button */
+button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #333;
+}
+
+/* Links */
+.links {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.links a {
+  font-size: 13px;
+  color: #555;
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+
+.input-error {
+  border: 1px solid red;
+  outline: none;
+}
+
+.errors {
+  color: red;
+  font-size: 13px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+
+
+/* Red border for invalid input */
+.input-error {
+  border: 1px solid #e63946 !important;
+  outline: none;
+}
+
+.is-invalid{
+  border: 1px solid red;
+}
