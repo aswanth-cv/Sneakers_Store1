@@ -6,10 +6,11 @@ const dotenv = require("dotenv").config();
 const connectDB = require("./config/db");
 const userRouter = require("./routes/userRoutes/userRouter");
 const adminRouter = require("./routes/adminRoutes/adminRouter");
+const cookieParser = require("cookie-parser");
 
 
 connectDB();
-
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded( { extended:true } ));
 

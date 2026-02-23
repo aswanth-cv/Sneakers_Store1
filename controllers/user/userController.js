@@ -3,6 +3,8 @@ const bcrypt = require("bcrypt");
 const User = require("../../models/userSchema");
 const { validationResult } = require("express-validator");
 const { render } = require("ejs");
+const jwt = require("jsonwebtoken");
+const {authMiddleware} = require("../../middlewares/authMiddleware")
 
 const loadHomepage = async(req,res) =>{
     try {
@@ -109,6 +111,12 @@ const postSignup = async(req,res)=>{
 const getLogin = (req,res)=>{
     try {
 
+        const token = req.cookies.userToken;
+
+        if(token){
+            return res.redirect("/")
+        }
+
         return res.render("login",{
             errors : {},
             oldData : {}
@@ -178,6 +186,25 @@ const postLogin = async(req,res)=>{
             oldData : req.body
         })
     }
+
+    const token = jwt.sign(
+        {userId : user._id,
+            role : user.isAdmin ? "admin" : "user"
+        },
+        process.env.JWT_SECRET,
+        {expiresIn : process.env.EXPRESS}
+    )
+
+
+    res.cookie("userToken",token,{
+        httpOnly :true,
+        secure : false,
+        sameSite : "lax",
+        path : "/",
+        maxAge: 24 * 60 * 60 * 1000 
+    })
+
+
         return res.redirect("/")
         
     } catch (error) {
