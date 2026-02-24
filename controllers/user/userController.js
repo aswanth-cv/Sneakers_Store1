@@ -217,6 +217,19 @@ const postLogin = async(req,res)=>{
 }
 
 
+const logout = (req,res)=>{
+    try {
+
+        res.clearCookie("userToken",{path:"/"});
+        return res.redirect("/login")
+        
+    } catch (error) {
+        console.log("Error from logut",error);
+
+    }
+}
+
+
 
 
 
@@ -225,5 +238,6 @@ module.exports = {
     getLogin,
     getSignup,
     postSignup,
-    postLogin
+    postLogin,
+    logout
 }

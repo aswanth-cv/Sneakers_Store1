@@ -12,6 +12,7 @@ userRouter.get("/login",noCache,userController.getLogin);
 userRouter.post("/login",authValidator.loginValidation,userController.postLogin)
 userRouter.get("/signup",noCache,userController.getSignup);
 userRouter.post("/signup",authValidator.signupValidation,userController.postSignup)
+userRouter.get("/logout",noCache,userController.logout);
 
 
 
